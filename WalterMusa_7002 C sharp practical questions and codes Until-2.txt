@@ -1,0 +1,91 @@
+(1) Write a C# program to print "Hello World"
+
+using System;
+
+class program
+{
+
+  static void main()
+   {
+      console.writeLine("Hello World");
+    }
+}
+
+Program Output:
+
+Hello World
+
+
+(2) Write a C# program to input 2 number and an arithmetic operation. Display the result accordingly.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter first number: ");
+        int a = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter second number: ");
+        int b = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter operation (+, -, *, /): ");
+        char op = Console.ReadLine()[0];
+
+        if (op == '+')
+            Console.WriteLine("Result: " + (a + b));
+        else if (op == '-')
+            Console.WriteLine("Result: " + (a - b));
+        else if (op == '*')
+            Console.WriteLine("Result: " + (a * b));
+        else if (op == '/')
+            Console.WriteLine("Result: " + (a / b));
+        else
+            Console.WriteLine("Invalid operation");
+    }
+}
+
+Program Output;
+
+Enter first number: 10
+Enter second number: 5
+Enter operation (+, -, *, /): *
+Result: 50
+
+(3) Write a C# program to take two input from user and perform all relational operator and display correct out. 
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter first number: ");
+        int a = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter second number: ");
+        int b = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("\nRelational Operator Results:");
+        Console.WriteLine($"a == b : {a == b}");
+        Console.WriteLine($"a != b : {a != b}");
+        Console.WriteLine($"a > b  : {a > b}");
+        Console.WriteLine($"a < b  : {a < b}");
+        Console.WriteLine($"a >= b : {a >= b}");
+        Console.WriteLine($"a <= b : {a <= b}");
+    }
+}
+
+Program Output:
+
+Enter first number: 10
+Enter second number: 5
+
+Relational Operator Results:
+a == b : False
+a != b : True
+a > b  : True
+a < b  : False
+a >= b : True
+a <= b : False
