@@ -1,0 +1,60 @@
+4.# Write a C# program to input Principle Amount, Rate and Year and display compound interest.
+
+using System;
+
+class CompoundInterest
+{
+    static void Main()
+    {
+        double principal, rate, time, amount, compoundInterest;
+
+        Console.Write("Enter Principal Amount: ");
+        principal = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter Rate of Interest (%): ");
+        rate = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter Time (in years): ");
+        time = Convert.ToDouble(Console.ReadLine());
+
+        amount = principal * Math.Pow((1 + rate / 100), time);
+        compoundInterest = amount - principal;
+
+        Console.WriteLine("\nCompound Interest = " + compoundInterest);
+        Console.WriteLine("Total Amount = " + amount);
+    }
+}
+
+Program Output:
+
+Enter Principal Amount: 10000
+Enter Rate of Interest (%): 5
+Enter Time (in years): 2
+
+Compound Interest = 1025
+Total Amount = 11025
+___________________________________________________________________________________________________________
+
+5.# Write a program to input radius of a circle, and area of that circle.
+
+using System;
+
+class AreaOfCircle
+{
+    static void Main()
+    {
+        double radius, area;
+
+        Console.Write("Enter radius of the circle: ");
+        radius = Convert.ToDouble(Console.ReadLine());
+
+        area = Math.PI * radius * radius;
+
+        Console.WriteLine("Area of the circle = " + area);
+    }
+}
+
+Program Output:
+
+Enter radius of the circle: 7
+Area of the circle = 153.93804002589985
