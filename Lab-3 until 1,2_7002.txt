@@ -1,0 +1,18 @@
+Unit - 1 Installation of C#
+
+Unit - 2 Write a program to print “Hello world”
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello world");
+    }
+}
+
+Program Output:
+
+Hello World
+
