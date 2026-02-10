@@ -1,0 +1,154 @@
+1.Definition - Write a C sharp Program to input radius of a circle, and print area of that circle.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double radius, area;
+
+        Console.Write("Enter the radius of the circle: ");
+        radius = Convert.ToDouble(Console.ReadLine());
+
+        area = Math.PI * radius * radius;
+
+        Console.WriteLine("Area of the circle = " + area);
+    }
+}
+
+Program Output:
+
+Enter the radius of the circle: 5
+Area of the circle = 78.53981633974483
+___________________________________________________________________________________________________
+2.Definition - Write a Program to input a number and print whether it is a even or odd.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int number;
+
+        Console.Write("Enter a number: ");
+        number = Convert.ToInt32(Console.ReadLine());
+
+        if (number % 2 == 0)
+        {
+            Console.WriteLine("The number is Even.");
+        }
+        else
+        {
+            Console.WriteLine("The number is Odd.");
+        }
+    }
+}
+
+Program Output:
+
+Enter a number: 3
+The number is Odd.
+______________________________________________________________________________________________________________
+3. Definition -  Write a Program to input age of person and display message as follows - if age < 12 print you are kid, if age between 12 to 17 print you are teenager and if age is between 18 to 60 print your are adult and if age > 60 print you are senior citizen.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int age;
+
+        Console.Write("Enter your age: ");
+        age = Convert.ToInt32(Console.ReadLine());
+
+        if (age < 12)
+        {
+            Console.WriteLine("You are a kid.");
+        }
+        else if (age >= 12 && age <= 17)
+        {
+            Console.WriteLine("You are a teenager.");
+        }
+        else if (age >= 18 && age <= 60)
+        {
+            Console.WriteLine("You are an adult.");
+        }
+        else
+        {
+            Console.WriteLine("You are a senior citizen.");
+        }
+    }
+}
+
+Program Output:
+
+Enter your age: 7
+You are a kid.
+__________________________________________________________________________________________________________
+4. Definition - Create a C# application that validates user login credentials using a predefined username and password with limited login attempts.
+
+using System;
+
+namespace LoginValidationApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Predefined credentials
+            string correctUsername = "admin";
+            string correctPassword = "password123";
+
+            int maxAttempts = 3;
+            int attempts = 0;
+            bool isLoggedIn = false;
+
+            while (attempts < maxAttempts && !isLoggedIn)
+            {
+                Console.Write("Enter username: ");
+                string username = Console.ReadLine();
+
+                Console.Write("Enter password: ");
+                string password = Console.ReadLine();
+
+                if (username == correctUsername && password == correctPassword)
+                {
+                    isLoggedIn = true;
+                    Console.WriteLine("Login successful! Welcome.");
+                }
+                else
+                {
+                    attempts++;
+                    Console.WriteLine("Invalid credentials.");
+
+                    if (attempts < maxAttempts)
+                    {
+                        Console.WriteLine($"Attempts remaining: {maxAttempts - attempts}");
+                    }
+                }
+
+                Console.WriteLine();
+            }
+
+            if (!isLoggedIn)
+            {
+                Console.WriteLine("Too many failed attempts. Access denied.");
+            }
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
+    }
+}
+
+Program Output:
+
+Enter username: admin
+Enter password: password123
+Login successful! Welcome.
+
+Press any key to exit...
+
