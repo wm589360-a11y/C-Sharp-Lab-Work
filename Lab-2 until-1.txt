@@ -1,0 +1,34 @@
+Revision of Object and class concept.
+
+class Car
+{
+    public string Color;
+    public int Speed;
+
+    public void Drive()
+    {
+        Console.WriteLine("Car is moving");
+    }
+}
+
+
+Car myCar = new Car();
+myCar.Color = "Red";
+myCar.Speed = 80;
+myCar.Drive();
+
+
+class Student
+{
+    public string Name;
+    public int RollNo;
+
+    public Student(string name, int rollNo)
+    {
+        Name = name;
+        RollNo = rollNo;
+    }
+}
+
+Student s1 = new Student("Alex", 101);
+
