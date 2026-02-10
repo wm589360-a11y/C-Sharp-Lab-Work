@@ -1,0 +1,173 @@
+Revision of C and C++
+
+C Language – Quick Revision
+1. Basics
+
+Procedural language
+
+Program starts from main()
+
+Uses functions heavily
+
+File extension: .c
+
+#include <stdio.h>
+int main() {
+    printf("Hello C");
+    return 0;
+}
+
+2. Data Types
+
+Primary: int, float, char, double
+
+Derived: arrays, pointers
+
+User-defined: struct, union, enum, typedef
+
+Modifiers: short, long, signed, unsigned
+
+3. Control Statements
+
+Conditional: if, if-else, switch
+
+Loops: for, while, do-while
+
+Jump: break, continue, goto, return
+
+4. Arrays & Strings
+
+Array = collection of same data type
+
+Strings are character arrays ending with '\0'
+
+char str[10] = "Hello";
+
+
+Common functions: strlen(), strcpy(), strcmp(), strcat()
+
+5. Pointers
+
+Stores address of a variable
+
+Important for arrays, functions, dynamic memory
+
+int a = 10;
+int *p = &a;
+
+6. Functions
+
+Call by value
+
+Call by reference (using pointers)
+
+7. Structures & Unions
+
+Structure: memory for all members
+
+Union: shared memory (one member at a time)
+
+struct Student {
+    int id;
+    float marks;
+};
+
+8. Dynamic Memory Allocation
+
+malloc(), calloc(), realloc(), free()
+
+🔹 C++ – Quick Revision
+1. Basics
+
+Object-Oriented language
+
+Extension: .cpp
+
+Uses cout and cin
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello C++";
+    return 0;
+}
+
+2. OOP Concepts ⭐
+
+Class & Object
+
+Encapsulation
+
+Inheritance
+
+Polymorphism
+
+Abstraction
+
+3. Class & Object
+class Student {
+public:
+    int id;
+    void show() {
+        cout << id;
+    }
+};
+
+4. Constructors & Destructors
+
+Constructor: auto-called when object is created
+
+Destructor: auto-called when object is destroyed
+
+Student() { }
+~Student() { }
+
+5. Inheritance
+
+Types: Single, Multiple, Multilevel, Hierarchical, Hybrid
+
+class A { };
+class B : public A { };
+
+6. Polymorphism
+
+Compile-time: Function overloading, Operator overloading
+
+Run-time: Function overriding (using virtual)
+
+virtual void show();
+
+7. Pointers in C++
+
+Similar to C
+
+Also used with objects & dynamic memory
+
+int *p = new int;
+delete p;
+
+8. STL (Standard Template Library)
+
+Containers: vector, list, map, set
+
+Iterators
+
+Algorithms: sort(), find(), count()
+
+🔹 C vs C++ (Very Important)
+Feature	C	C++
+Type	Procedural	Object-Oriented
+Data Security	Low	High (Encapsulation)
+OOP	❌	✅
+Function Overloading	❌	✅
+STL	❌	✅
+🔹 Exam Tips 📝
+
+Focus on pointers, structures, OOP concepts
+
+Practice small programs
+
+Remember syntax differences between C & C++
+
+Revise C vs C++ comparisons
