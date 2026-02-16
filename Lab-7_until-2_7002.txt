@@ -1,0 +1,108 @@
+Definition 1: Write a Program to find factorial of given number
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        if (number < 0)
+        {
+            Console.WriteLine("Factorial is not defined for negative numbers.");
+        }
+        else
+        {
+            long factorial = 1;
+
+            for (int i = 1; i <= number; i++)
+            {
+                factorial *= i;
+            }
+
+            Console.WriteLine("Factorial of " + number + " is: " + factorial);
+        }
+    }
+}
+
+Program Output:
+
+Enter a number: 2
+Factorial of 2 is: 2
+___________________________________________________________________________________________________________
+
+ Definition 2: Write a Program to find Fibonacci Series up to a number inputted by user.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int limit = Convert.ToInt32(Console.ReadLine());
+
+        int first = 0, second = 1;
+
+        Console.WriteLine("Fibonacci Series up to " + limit + ":");
+
+        while (first <= limit)
+        {
+            Console.Write(first + " ");
+
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+    }
+}
+
+Program Output:
+
+Enter a number: 5
+Fibonacci Series up to 5:
+0 1 1 2 3 5
+____________________________________________________________________________________________________________
+
+ Definition 3: Write a Program to check weather a number inputted by user is prime or not.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        if (number <= 1)
+        {
+            Console.WriteLine(number + " is not a prime number.");
+            return;
+        }
+
+        bool isPrime = true;
+
+        for (int i = 2; i <= number / 2; i++)
+        {
+            if (number % i == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime)
+            Console.WriteLine(number + " is a prime number.");
+        else
+            Console.WriteLine(number + " is not a prime number.");
+    }
+}
+
+Program Output:
+
+Enter a number: 5
+5 is a prime number.
+
