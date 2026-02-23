@@ -1,0 +1,68 @@
+Write a program to calculate electricity bill based on unit slabs. Add a fixed meter charge and apply GST if the bill exceeds a certain amount. 
+First 100 units → ₹1.5/unit
+Next 100 units → ₹2.5/unit
+Above 200 units → ₹4/unit
+Fixed meter charge → ₹50
+GST → 18% if bill > ₹500
+
+using System;
+
+class ElectricityBill
+{
+    static void Main()
+    {
+        double units;
+        double billAmount = 0;
+        double fixedCharge = 50;
+        double gst = 0;
+        double totalBill;
+
+        Console.Write("Enter number of units consumed: ");
+        units = Convert.ToDouble(Console.ReadLine());
+
+        // Calculate slab charges
+        if (units <= 100)
+        {
+            billAmount = units * 1.5;
+        }
+        else if (units <= 200)
+        {
+            billAmount = (100 * 1.5) + ((units - 100) * 2.5);
+        }
+        else
+        {
+            billAmount = (100 * 1.5) + (100 * 2.5) + ((units - 200) * 4);
+        }
+
+        // Add fixed meter charge
+        billAmount += fixedCharge;
+
+        // Apply GST if bill exceeds ₹500
+        if (billAmount > 500)
+        {
+            gst = billAmount * 0.18;
+        }
+
+        totalBill = billAmount + gst;
+
+        // Display bill details
+        Console.WriteLine("\n------ Electricity Bill ------");
+        Console.WriteLine("Units Consumed: " + units);
+        Console.WriteLine("Bill Amount (Before GST): ₹" + billAmount);
+        Console.WriteLine("GST (18% if applicable): ₹" + gst);
+        Console.WriteLine("Total Bill Amount: ₹" + totalBill);
+    }
+}
+
+Program Output:
+
+Enter number of units consumed: 250
+
+------ Electricity Bill ------
+Units Consumed: 250
+Bill Amount (Before GST): ?650
+GST (18% if applicable): ?117
+Total Bill Amount: ?767
+
+   
+           
