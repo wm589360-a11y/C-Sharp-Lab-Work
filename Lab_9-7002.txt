@@ -1,0 +1,109 @@
+#Write a C# program to check weather a number is palindrome or not.
+
+using System;
+
+class PalindromeNumber
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = int.Parse(Console.ReadLine());
+
+        int originalNumber = number;
+        int reversedNumber = 0;
+
+        while (number > 0)
+        {
+            int digit = number % 10;
+            reversedNumber = reversedNumber * 10 + digit;
+            number /= 10;
+        }
+
+        if (originalNumber == reversedNumber)
+        {
+            Console.WriteLine("The number is a palindrome.");
+        }
+        else
+        {
+            Console.WriteLine("The number is not a palindrome.");
+        }
+    }
+}
+
+Program Output:
+
+Enter a number: 1331
+The number is a palindrome
+
+#Write a C# program to check weather a string is palindrome or not.
+
+using System;
+
+class PalindromeString
+{
+    static void Main()
+    {
+        Console.Write("Enter a string: ");
+        string input = Console.ReadLine();
+
+        string originalString = input;
+        string reversedString = "";
+
+        for (int i = input.Length - 1; i >= 0; i--)
+        {
+            reversedString += input[i];
+        }
+
+        if (originalString.Equals(reversedString, StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine("The string is a palindrome.");
+        }
+        else
+        {
+            Console.WriteLine("The string is not a palindrome.");
+        }
+    }
+}
+
+Program Output:
+
+Enter a string: Madam
+The string is a palindrome.
+
+#Write a C# program to check whether a number is Armstrong or not.
+
+using System;
+
+class ArmstrongNumber
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = int.Parse(Console.ReadLine());
+
+        int originalNumber = number;
+        int sum = 0;
+        int digits = number.ToString().Length;
+
+        while (number > 0)
+        {
+            int digit = number % 10;
+            sum += (int)Math.Pow(digit, digits);
+            number /= 10;
+        }
+
+        if (sum == originalNumber)
+        {
+            Console.WriteLine("The number is an Armstrong number.");
+        }
+        else
+        {
+            Console.WriteLine("The number is not an Armstrong number.");
+        }
+    }
+}
+
+Program Output:
+
+Enter a number: 9474
+The number is an Armstrong number.
