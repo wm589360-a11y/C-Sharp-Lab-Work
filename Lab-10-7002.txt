@@ -1,0 +1,209 @@
+#Write a C# program that calculates bill and gives discount based on category(senior citizen, regular, industrial).
+
+using System;
+
+class ElectricityBill
+{
+    static void Main()
+    {
+        double unitsConsumed;
+        double ratePerUnit = 5.0; // Example rate per unit
+        double totalAmount;
+        double discount = 0;
+        double finalAmount;
+        string category;
+
+        Console.WriteLine("Enter units consumed:");
+        unitsConsumed = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Enter customer category (Senior, Regular, Industrial):");
+        category = Console.ReadLine().ToLower();
+
+        // Calculate total bill before discount
+        totalAmount = unitsConsumed * ratePerUnit;
+
+        // Apply discount based on category
+        if (category == "senior")
+        {
+            discount = 0.20 * totalAmount; // 20% discount
+        }
+        else if (category == "regular")
+        {
+            discount = 0.05 * totalAmount; // 5% discount
+        }
+        else if (category == "industrial")
+        {
+            discount = 0.10 * totalAmount; // 10% discount
+        }
+        else
+        {
+            Console.WriteLine("Invalid category entered. No discount applied.");
+        }
+
+        finalAmount = totalAmount - discount;
+
+        Console.WriteLine("\n----- BILL DETAILS -----");
+        Console.WriteLine("Units Consumed: " + unitsConsumed);
+        Console.WriteLine("Rate per Unit: $" + ratePerUnit);
+        Console.WriteLine("Total Amount: $" + totalAmount);
+        Console.WriteLine("Discount: $" + discount);
+        Console.WriteLine("Final Amount to Pay: $" + finalAmount);
+    }
+}
+
+Program Output:
+
+Enter units consumed:
+100
+Enter customer category (Senior, Regular, Industrial):
+200
+Invalid category entered. No discount applied.
+
+----- BILL DETAILS -----
+Units Consumed: 100
+Rate per Unit: $5
+Total Amount: $500
+Discount: $0
+Final Amount to Pay: $500
+
+
+#Write a C# program to determine loan eligibility based on age, income and credit score using nested conditions.
+
+using System;
+
+class LoanEligibility
+{
+    static void Main()
+    {
+        int age;
+        double income;
+        int creditScore;
+
+        Console.WriteLine("Enter your age:");
+        age = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter your monthly income:");
+        income = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Enter your credit score:");
+        creditScore = Convert.ToInt32(Console.ReadLine());
+
+        // Nested Conditions
+        if (age >= 21 && age <= 60)
+        {
+            if (income >= 2000)
+            {
+                if (creditScore >= 750)
+                {
+                    Console.WriteLine("\nLoan Status: Fully Eligible for Loan");
+                }
+                else if (creditScore >= 650)
+                {
+                    Console.WriteLine("\nLoan Status: Eligible with Conditions");
+                }
+                else
+                {
+                    Console.WriteLine("\nLoan Status: Not Eligible (Low Credit Score)");
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nLoan Status: Not Eligible (Insufficient Income)");
+            }
+        }
+        else
+        {
+            Console.WriteLine("\nLoan Status: Not Eligible (Age criteria not met)");
+        }
+    }
+}
+
+Program Output:
+
+Enter your age:
+35
+Enter your monthly income:
+1000
+Enter your credit score:
+50
+
+Loan Status: Not Eligible (Insufficient Income)
+
+#Write a program to verify PIN first, then allow withdrawal only if balance is sufficient.
+Class comments.
+
+using System;
+
+// Class representing ATM operations
+class ATM
+{
+    // Stored PIN and Account Balance
+    private int storedPin = 1234;
+    private double balance = 5000.00;
+
+    // Method to verify PIN
+    public bool VerifyPin(int enteredPin)
+    {
+        if (enteredPin == storedPin)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Method to withdraw money
+    public void Withdraw(double amount)
+    {
+        if (amount <= balance)
+        {
+            balance -= amount;
+            Console.WriteLine("Withdrawal Successful!");
+            Console.WriteLine("Remaining Balance: $" + balance);
+        }
+        else
+        {
+            Console.WriteLine("Insufficient Balance!");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        ATM atm = new ATM();
+
+        Console.WriteLine("Enter your PIN:");
+        int enteredPin = Convert.ToInt32(Console.ReadLine());
+
+        // First verify PIN
+        if (atm.VerifyPin(enteredPin))
+        {
+            Console.WriteLine("PIN Verified Successfully!");
+
+            Console.WriteLine("Enter withdrawal amount:");
+            double amount = Convert.ToDouble(Console.ReadLine());
+
+            // Allow withdrawal if balance is sufficient
+            atm.Withdraw(amount);
+        }
+        else
+        {
+            Console.WriteLine("Incorrect PIN. Access Denied!");
+        }
+    }
+}
+
+Program Output:
+
+Enter your PIN:
+1234
+PIN Verified Successfully!
+Enter withdrawal amount:
+400
+Withdrawal Successful!
+Remaining Balance: $4600
+
