@@ -1,0 +1,369 @@
+#Write a C# Program to count positive and negative numbers using array.
+
+using System;
+
+class PositiveNegativeCount
+{
+    static void Main()
+    {
+        Console.Write("Enter the number of elements: ");
+        int n = int.Parse(Console.ReadLine());
+
+        int[] numbers = new int[n];
+        int positiveCount = 0;
+        int negativeCount = 0;
+        int zeroCount = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write($"Enter element {i + 1}: ");
+            numbers[i] = int.Parse(Console.ReadLine());
+        }
+
+        foreach (int num in numbers)
+        {
+            if (num > 0)
+                positiveCount++;
+            else if (num < 0)
+                negativeCount++;
+            else
+                zeroCount++;
+        }
+
+        Console.WriteLine("\nResults:");
+        Console.WriteLine("Positive numbers: " + positiveCount);
+        Console.WriteLine("Negative numbers: " + negativeCount);
+        Console.WriteLine("Zero numbers: " + zeroCount);
+    }
+}
+
+Program Output:
+
+Enter the number of elements: 1
+Enter element 1: 2
+
+Results:
+Positive numbers: 1
+Negative numbers: 0
+Zero numbers: 0
+
+#Write a C# program to store 8 number of array.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Declare an array to store 8 numbers
+        int[] numbers = new int[8];
+
+        // Input 8 numbers from the user
+        Console.WriteLine("Enter 8 numbers:");
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.Write("Number " + (i + 1) + ": ");
+            numbers[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        // Display the stored numbers
+        Console.WriteLine("\nThe numbers you entered are:");
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine(numbers[i]);
+        }
+    }
+}
+
+Program Output:
+
+Enter 8 numbers:
+Number 1: 5
+Number 2: 10
+Number 3: 15
+Number 4: 20
+Number 5: 25
+Number 6: 30
+Number 7: 35
+Number 8: 40
+
+#Write a C# program using loop to traverse the array.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Initialize array with 8 numbers
+        int[] numbers = { 5, 10, 15, 20, 25, 30, 35, 40 };
+
+        // Traverse the array using a for loop
+        Console.WriteLine("Traversing the array using for loop:");
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine("Element at index " + i + " is: " + numbers[i]);
+        }
+    }
+}
+
+Program Output:
+
+Traversing the array using for loop:
+Element at index 0 is: 5
+Element at index 1 is: 10
+Element at index 2 is: 15
+Element at index 3 is: 20
+Element at index 4 is: 25
+Element at index 5 is: 30
+Element at index 6 is: 35
+Element at index 7 is: 40
+
+#Write a C# program using if condition to count positive or negative numbers separately.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int positiveCount = 0;
+        int negativeCount = 0;
+        int n;
+
+        Console.Write("Enter how many numbers you want to input: ");
+
+        // Validate first input
+        while (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
+        {
+            Console.Write("Please enter a valid positive integer: ");
+        }
+
+        for (int i = 1; i <= n; i++)
+        {
+            int number;
+            Console.Write("Enter number " + i + ": ");
+
+            // Validate each number input
+            while (!int.TryParse(Console.ReadLine(), out number))
+            {
+                Console.Write("Invalid input. Please enter a valid integer: ");
+            }
+
+            if (number > 0)
+            {
+                positiveCount++;
+            }
+            else if (number < 0)
+            {
+                negativeCount++;
+            }
+        }
+
+        Console.WriteLine("\nTotal Positive Numbers: " + positiveCount);
+        Console.WriteLine("Total Negative Numbers: " + negativeCount);
+    }
+}
+
+Program Output:
+
+
+
+
+#Write a C# program to calculate sum and average.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int n;
+        double sum = 0;
+
+        Console.Write("Enter how many numbers you want to input: ");
+        
+        while (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
+        {
+            Console.Write("Please enter a valid positive integer: ");
+        }
+
+        for (int i = 1; i <= n; i++)
+        {
+            double number;
+            Console.Write("Enter number " + i + ": ");
+
+            while (!double.TryParse(Console.ReadLine(), out number))
+            {
+                Console.Write("Invalid input. Please enter a valid number: ");
+            }
+
+            sum += number;
+        }
+
+        double average = sum / n;
+
+        Console.WriteLine("\nSum = " + sum);
+        Console.WriteLine("Average = " + average);
+    }
+}
+
+
+Program Output:
+
+Enter how many numbers you want to input: 20
+Enter number 1: 5
+Enter number 2: 10
+Enter number 3: 15
+Enter number 4: 20
+Enter number 5: 25
+Enter number 6: 30
+Enter number 7: 35
+Enter number 8: 40
+Enter number 9: 45
+Enter number 10: 50
+Enter number 11: 55
+Enter number 12: 60
+Enter number 13: 65
+Enter number 14: 70
+Enter number 15: 75
+Enter number 16: 80
+Enter number 17: 85
+Enter number 18: 90
+Enter number 19: 95
+Enter number 20: 99
+
+Sum = 1049
+Average = 52.45
+
+#Write a C# program to store marks of five students in an array.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Declare array to store marks of 5 students
+        int[] marks = new int[5];
+
+        // Input marks
+        Console.WriteLine("Enter marks for 5 students:");
+
+        for (int i = 0; i < marks.Length; i++)
+        {
+            Console.Write("Student " + (i + 1) + ": ");
+            marks[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        // Display marks
+        Console.WriteLine("\nMarks of the students:");
+
+        for (int i = 0; i < marks.Length; i++)
+        {
+            Console.WriteLine("Student " + (i + 1) + ": " + marks[i]);
+        }
+    }
+}
+
+Program Output:
+
+Enter marks for 5 students:
+Student 1: 80
+Student 2: 90
+Student 3: 95
+Student 4: 85
+Student 5: 99
+
+Marks of the students:
+Student 1: 80
+Student 2: 90
+Student 3: 95
+Student 4: 85
+Student 5: 99
+
+#Write a C# program using a loop to calculate total marks.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] marks = new int[5];
+        int total = 0;
+
+        Console.WriteLine("Enter marks for 5 students:");
+
+        // Input marks and calculate total using loop
+        for (int i = 0; i < marks.Length; i++)
+        {
+            Console.Write("Student " + (i + 1) + ": ");
+            marks[i] = Convert.ToInt32(Console.ReadLine());
+            total += marks[i];  // Add each mark to total
+        }
+
+        // Display total marks
+        Console.WriteLine("\nTotal Marks = " + total);
+    }
+}
+
+Program Output:
+
+Enter marks for 5 students:
+Student 1: 90
+Student 2: 88
+Student 3: 85
+Student 4: 99
+Student 5: 95
+
+Total Marks = 457
+
+#Write a C# program to calculate and display the average.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] marks = new int[5];
+        int total = 0;
+        double average;
+
+        Console.WriteLine("Enter marks for 5 students:");
+
+        // Input marks and calculate total
+        for (int i = 0; i < marks.Length; i++)
+        {
+            Console.Write("Student " + (i + 1) + ": ");
+            marks[i] = Convert.ToInt32(Console.ReadLine());
+            total += marks[i];
+        }
+
+        // Calculate average
+        average = (double)total / marks.Length;
+
+        // Display result
+        Console.WriteLine("\nTotal Marks = " + total);
+        Console.WriteLine("Average Marks = " + average);
+    }
+}
+
+Program Output:
+
+Enter marks for 5 students:
+Student 1: 90
+Student 2: 95
+Student 3: 85
+Student 4: 89
+Student 5: 99
+
+Total Marks = 458
+Average Marks = 91.6
+
+
+
