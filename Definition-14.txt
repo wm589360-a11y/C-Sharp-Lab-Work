@@ -1,0 +1,82 @@
+Definition : Create a class “Student” that contains rollNo, name, and marks as instance variables. Define constructors (default and parameterized) to initialize these variables. Create methods to calculate grade based on marks and display student details.
+
+using System;
+
+class Student
+{
+    int rollNo;
+    string name;
+    double marks;
+
+    // Default Constructor
+    public Student()
+    {
+        rollNo = 0;
+        name = "Unknown";
+        marks = 0;
+    }
+
+    // Parameterized Constructor
+    public Student(int r, string n, double m)
+    {
+        rollNo = r;
+        name = n;
+        marks = m;
+    }
+
+    // Method to calculate grade
+    public string CalculateGrade()
+    {
+        if (marks >= 90)
+            return "A";
+        else if (marks >= 75)
+            return "B";
+        else if (marks >= 60)
+            return "C";
+        else if (marks >= 50)
+            return "D";
+        else
+            return "F";
+    }
+
+    // Method to display student details
+    public void DisplayDetails()
+    {
+        Console.WriteLine("Roll No: " + rollNo);
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Marks: " + marks);
+        Console.WriteLine("Grade: " + CalculateGrade());
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Using default constructor
+        Student s1 = new Student();
+        Console.WriteLine("Student 1 Details:");
+        s1.DisplayDetails();
+
+        Console.WriteLine();
+
+        // Using parameterized constructor
+        Student s2 = new Student(101, "Rahul", 82);
+        Console.WriteLine("Student 2 Details:");
+        s2.DisplayDetails();
+    }
+}
+
+Program output:
+
+Student 1 Details:
+Roll No: 0
+Name: Unknown
+Marks: 0
+Grade: F
+
+Student 2 Details:
+Roll No: 101
+Name: Rahul
+Marks: 82
+Grade: B
