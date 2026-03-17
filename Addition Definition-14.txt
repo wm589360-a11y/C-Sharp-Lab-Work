@@ -1,0 +1,74 @@
+Definition : Create a class “Employee” that contains employeeId, name, and salary as instance variables. Define constructors (default and parameterized) to initialize the values. Create methods to calculate annual salary and display employee information. C-sharp
+
+using System;
+
+class Employee
+{
+    // Instance variables
+    int employeeId;
+    string name;
+    double salary;
+
+    // Default Constructor
+    public Employee()
+    {
+        employeeId = 0;
+        name = "Unknown";
+        salary = 0.0;
+    }
+
+    // Parameterized Constructor
+    public Employee(int id, string n, double sal)
+    {
+        employeeId = id;
+        name = n;
+        salary = sal;
+    }
+
+    // Method to calculate annual salary
+    public double CalculateAnnualSalary()
+    {
+        return salary * 12;
+    }
+
+    // Method to display employee information
+    public void DisplayInfo()
+    {
+        Console.WriteLine("Employee ID: " + employeeId);
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Monthly Salary: " + salary);
+        Console.WriteLine("Annual Salary: " + CalculateAnnualSalary());
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Using default constructor
+        Employee emp1 = new Employee();
+        Console.WriteLine("Employee 1 Details:");
+        emp1.DisplayInfo();
+
+        Console.WriteLine();
+
+        // Using parameterized constructor
+        Employee emp2 = new Employee(101, "Rahul", 25000);
+        Console.WriteLine("Employee 2 Details:");
+        emp2.DisplayInfo();
+    }
+}
+
+Program output:
+
+Employee 1 Details:
+Employee ID: 0
+Name: Unknown
+Monthly Salary: 0
+Annual Salary: 0
+
+Employee 2 Details:
+Employee ID: 101
+Name: Rahul
+Monthly Salary: 25000
+Annual Salary: 300000
