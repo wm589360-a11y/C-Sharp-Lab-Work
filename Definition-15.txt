@@ -1,0 +1,244 @@
+Definition : 
+
+Create a class that contains instance variables such as and . Derive two classes from it named and .
+
+
+The class should include an additional instance variable called , while the class should include an instance variable called .
+
+
+using System;
+
+// Base class
+class Person
+{
+    // Instance variables
+    public string name;
+    public int age;
+
+    // Constructor
+    public Person(string name, int age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display basic info
+    public void DisplayPerson()
+    {
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Age: " + age);
+    }
+}
+
+// Derived class 1
+class Student : Person
+{
+    // Additional instance variable
+    public int rollNumber;
+
+    // Constructor
+    public Student(string name, int age, int rollNumber)
+        : base(name, age)
+    {
+        this.rollNumber = rollNumber;
+    }
+
+    // Method to display student info
+    public void DisplayStudent()
+    {
+        DisplayPerson();
+        Console.WriteLine("Roll Number: " + rollNumber);
+    }
+}
+
+// Derived class 2
+class Teacher : Person
+{
+    // Additional instance variable
+    public string subject;
+
+    // Constructor
+    public Teacher(string name, int age, string subject)
+        : base(name, age)
+    {
+        this.subject = subject;
+    }
+
+    // Method to display teacher info
+    public void DisplayTeacher()
+    {
+        DisplayPerson();
+        Console.WriteLine("Subject: " + subject);
+    }
+}
+
+// Main class
+class Program
+{
+    static void Main()
+    {
+        Student s = new Student("Alice", 20, 101);
+        Teacher t = new Teacher("Mr. Smith", 40, "Mathematics");
+
+        Console.WriteLine("Student Details:");
+        s.DisplayStudent();
+
+        Console.WriteLine("\nTeacher Details:");
+        t.DisplayTeacher();
+    }
+}
+
+
+Program Output:
+
+Student Details:
+Name: Alice
+Age: 20
+Roll Number: 101
+
+Teacher Details:
+Name: Mr. Smith
+Age: 40
+Subject: Mathematics
+
+
+Define appropriate methods in all classes to perform operations like for both Savings and Current accounts. Use the concept of and implement method overriding where required. C#
+
+using System;
+
+// Base Class
+class Account
+{
+    public int AccountNumber { get; set; }
+    public string HolderName { get; set; }
+    public double Balance { get; set; }
+
+    public Account(int accNo, string name, double balance)
+    {
+        AccountNumber = accNo;
+        HolderName = name;
+        Balance = balance;
+    }
+
+    // Deposit method (common)
+    public virtual void Deposit(double amount)
+    {
+        Balance += amount;
+        Console.WriteLine($"Deposited: {amount}, New Balance: {Balance}");
+    }
+
+    // Withdraw method (to be overridden)
+    public virtual void Withdraw(double amount)
+    {
+        if (amount <= Balance)
+        {
+            Balance -= amount;
+            Console.WriteLine($"Withdrawn: {amount}, Remaining Balance: {Balance}");
+        }
+        else
+        {
+            Console.WriteLine("Insufficient balance.");
+        }
+    }
+
+    // Display
+    public virtual void Display()
+    {
+        Console.WriteLine($"Account No: {AccountNumber}, Name: {HolderName}, Balance: {Balance}");
+    }
+}
+
+// Savings Account Class
+class SavingsAccount : Account
+{
+    public double InterestRate { get; set; }
+
+    public SavingsAccount(int accNo, string name, double balance, double rate)
+        : base(accNo, name, balance)
+    {
+        InterestRate = rate;
+    }
+
+    // Override Withdraw (limit restriction)
+    public override void Withdraw(double amount)
+    {
+        if (amount <= Balance && amount <= 10000) // withdrawal limit
+        {
+            Balance -= amount;
+            Console.WriteLine($"[Savings] Withdrawn: {amount}, Balance: {Balance}");
+        }
+        else
+        {
+            Console.WriteLine("[Savings] Withdrawal limit exceeded or insufficient funds.");
+        }
+    }
+
+    // Custom method
+    public void AddInterest()
+    {
+        double interest = Balance * InterestRate / 100;
+        Balance += interest;
+        Console.WriteLine($"Interest Added: {interest}, New Balance: {Balance}");
+    }
+}
+
+// Current Account Class
+class CurrentAccount : Account
+{
+    public double OverdraftLimit { get; set; }
+
+    public CurrentAccount(int accNo, string name, double balance, double overdraft)
+        : base(accNo, name, balance)
+    {
+        OverdraftLimit = overdraft;
+    }
+
+    // Override Withdraw (allow overdraft)
+    public override void Withdraw(double amount)
+    {
+        if (amount <= Balance + OverdraftLimit)
+        {
+            Balance -= amount;
+            Console.WriteLine($"[Current] Withdrawn: {amount}, Balance: {Balance}");
+        }
+        else
+        {
+            Console.WriteLine("[Current] Overdraft limit exceeded.");
+        }
+    }
+}
+
+// Main Program
+class Program
+{
+    static void Main()
+    {
+        Account sa = new SavingsAccount(101, "Amit", 50000, 5);
+        Account ca = new CurrentAccount(201, "Rahul", 20000, 10000);
+
+        Console.WriteLine("\n--- Savings Account ---");
+        sa.Deposit(5000);
+        sa.Withdraw(8000);
+        ((SavingsAccount)sa).AddInterest();
+        sa.Display();
+
+        Console.WriteLine("\n--- Current Account ---");
+        ca.Deposit(3000);
+        ca.Withdraw(25000); // uses overdraft
+        ca.Display();
+    }
+}
+
+
+Program Output:
+
+--- Savings Account ---
+Deposited: 5000, New Balance: 55000
+[Savings] Withdrawn: 8000, Balance: 47000
+Interest Added: 2350, New Balance: 49350
+Account No: 101, Name: Amit, Balance: 49350
+
+--- Current Account ---
+Deposited: 3000, New Balance: 23000
+[Current] Withdrawn: 25000, Balance: -2000
+Account No: 201, Name: Rahul, Balance: -2000
